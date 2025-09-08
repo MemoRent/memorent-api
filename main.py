@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import auth, properties, leases, tickets, documents, payments, dashboard, webhooks, invoices, reminders
+import auth, properties, leases, tickets, documents, payments, dashboard, webhooks, invoices, reminders
 
 app = FastAPI(title="LocA - Gestion Locative Belgique (MVP)")
 
