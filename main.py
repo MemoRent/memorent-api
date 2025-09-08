@@ -18,7 +18,10 @@ app.include_router(leases.router, prefix="/leases", tags=["leases"])
 app.include_router(payments.router, prefix="/payments", tags=["payments"])
 app.include_router(tickets.router, prefix="/tickets", tags=["tickets"])
 app.include_router(documents.router, prefix="/documents", tags=["documents"])
-app.include_router(dashboard.router, prefix="/dashboard", tags=["dashboard"])\napp.include_router(webhooks.router, prefix="/webhooks", tags=["webhooks"])\napp.include_router(invoices.router, prefix="/invoices", tags=["invoices"])\napp.include_router(reminders.router, prefix="/reminders", tags=["reminders"])
+app.include_router(dashboard.router, prefix="/dashboard", tags=["dashboard"])
+app.include_router(webhooks.router, prefix="/webhooks", tags=["webhooks"])
+app.include_router(invoices.router, prefix="/invoices", tags=["invoices"])
+app.include_router(reminders.router, prefix="/reminders", tags=["reminders"])
 
 @app.get("/health")
 def health():
