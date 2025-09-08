@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Query
 from typing import Optional
-from ..utils import be_structured_build, be_structured_check, iso11649_rf_check, epc_payload
+from utils import ... be_structured_build, be_structured_check, iso11649_rf_check, epc_payload
 
 router = APIRouter()
 
