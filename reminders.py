@@ -2,8 +2,8 @@
 from fastapi import APIRouter, HTTPException, Query
 from datetime import date, datetime, timedelta
 from typing import List, Dict
-from .invoices import INVOICES
-from ..templates import REMINDER_TEMPLATES
+from invoices import INVOICES
+from templates import REMINDER_TEMPLATES
 
 router = APIRouter()
 
