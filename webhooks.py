@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Request
 from typing import List, Dict
-from .invoices import INVOICES
+from invoices import INVOICES
 
 router = APIRouter()
 
