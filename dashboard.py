@@ -1,5 +1,4 @@
 from fastapi import APIRouter
-from invoices import _INVOICES
 from tickets import _TICKETS
 
 router = APIRouter()
