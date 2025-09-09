@@ -68,3 +68,12 @@ def epc_payload(
         remittance or "",
     ]
     return "\n".join(lines)
+
+from uuid import uuid4
+
+def make_token(sub: str, expires_in_seconds: int = 3600) -> str:
+    """
+    Génère un jeton 'fake' pour la beta (pas un JWT signé).
+    Suffisant tant qu'on ne valide pas le token côté backend.
+    """
+    return f"stub.{uuid4().hex}"
