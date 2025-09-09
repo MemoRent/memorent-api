@@ -1,11 +1,23 @@
+from typing import List
 from fastapi import APIRouter
+from pydantic import BaseModel, AnyUrl
+
 router = APIRouter()
+
+class Document(BaseModel):
+    id: int
+    name: str
+    url: AnyUrl
+
+_DOCS: List[Document] = [
+    Document(id=1, name="Etat des lieux.pdf", url="https://example.com/doc1.pdf")
+]
 
 @router.get("")
 def list_documents():
-    return {"documents": []}
+    return {"items": [d.model_dump() for d in _DOCS], "count": len(_DOCS)}
 
 @router.post("")
-def create_document():
-    # In real life: return pre-signed URL for upload to S3/Wasabi/etc.
-    return {"upload_url": "https://storage.example/presigned", "id": 1}
+def create_document(doc: Document):
+    _DOCS.append(doc)
+    return {"created": doc.model_dump()}
