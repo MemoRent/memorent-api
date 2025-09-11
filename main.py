@@ -39,3 +39,11 @@ app.include_router(reminders_router,  prefix="/reminders",  tags=["reminders"])
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+from fastapi import FastAPI
+from invoices import router as invoices_router
+from webhooks import router as webhooks_router
+
+app = FastAPI()
+app.include_router(invoices_router, prefix="/invoices", tags=["invoices"])
+app.include_router(webhooks_router, prefix="/webhooks", tags=["webhooks"])
