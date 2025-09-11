@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-# Imports des routers (fichiers .py à la racine du repo)
+# Imports des routers
 from auth import router as auth_router
 from properties import router as properties_router
 from leases import router as leases_router
@@ -24,7 +24,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Déclaration des routes (une ligne par router)
+# Déclaration des routes
 app.include_router(auth_router,       prefix="/auth",       tags=["auth"])
 app.include_router(properties_router, prefix="/properties", tags=["properties"])
 app.include_router(leases_router,     prefix="/leases",     tags=["leases"])
@@ -40,10 +40,3 @@ app.include_router(reminders_router,  prefix="/reminders",  tags=["reminders"])
 def health():
     return {"status": "ok"}
 
-from fastapi import FastAPI
-from invoices import router as invoices_router
-from webhooks import router as webhooks_router
-
-app = FastAPI()
-app.include_router(invoices_router, prefix="/invoices", tags=["invoices"])
-app.include_router(webhooks_router, prefix="/webhooks", tags=["webhooks"])
